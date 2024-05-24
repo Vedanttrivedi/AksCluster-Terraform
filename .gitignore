@@ -18,3 +18,5 @@ terraform.tfstate.d/
 .env.*
 
 *.log
+.infracost/terraform_modules/manifest.json
+.infracost/pricing.gob
