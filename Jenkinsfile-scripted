@@ -1,0 +1,36 @@
+node {
+    try {
+        stage('Log') {
+            echo "executing this using scripted!"
+            echo 'Logging in to Azure...'
+            sh 'az login'
+            echo 'Current working directory:'
+            sh 'pwd'
+            echo 'Listing directory contents:'
+            sh 'ls'
+        }
+
+        stage('Initialize') {
+            echo 'Initializing Terraform...'
+            sh 'terraform init'
+        }
+
+        stage('Apply') {
+            echo 'Applying Terraform configuration...'
+            sh 'terraform apply -var-file=dev.tfvars --auto-approve'
+        }
+
+        // Uncomment the following stage if you want to add a destroy step
+        /*
+        stage('Destroy') {
+            echo 'Destroying Terraform configuration...'
+            sh 'terraform destroy -var-file=dev.tfvars --auto-approve'
+        }
+        */
+
+    } catch (Exception e) {
+        echo "An error occurred: ${e.message}"
+        currentBuild.result = 'FAILURE'
+        throw e
+    }
+}
