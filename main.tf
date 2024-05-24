@@ -6,3 +6,4 @@ module "aks_cluster" {
   dns_prefix = var.dns_prefix
   tags = var.tags
 }
+
