@@ -5,7 +5,6 @@
 *.tfstate.*
 terraform.tfstate.backup
 
-*.tfvars
 *.tfvars.json
 
 *.tfplan
