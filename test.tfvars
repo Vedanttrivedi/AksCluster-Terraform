@@ -1,0 +1,5 @@
+aks_name = "test-myaksers"
+resource_group_name = "sa1_test_eic_VedantTrivedi"
+location = "southeastasia"
+dns_prefix = "test-akserser"
+identity = "SystemAssigned"
